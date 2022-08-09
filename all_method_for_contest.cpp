@@ -123,24 +123,21 @@ pair<int ,int> time_duration(int w,int x, int y, int z, int format)
         }
     }
 }
+// frequency count ,, return a map
+map<int,int> frequency_count(vector<int> v)
+{
+    map<int,int> mp;
+    for(int i=0;i<v.size();i++)
+    {
+        if(mp.find(v[i])==mp.end()) mp[v[i]]=1;
+        else mp[v[i]]++; 
+    }
+    //for(auto& at : mp) cout<< at.first << " " <<at.second <<endl; //print friquenci formate
+    return mp;
+}
 
 int main()
 {
-    /*long long int n;
-    cin>>n;
-    vector<long long int> v;
-    v = all_divisors(n);
-    for (auto a : v)
-        cout << a << " ";
-        
-    int w,x,y,z;
-    cin>>w>>x>>y>>z;
-    pair<int,int> time;
-    time = time_duration(w,x,y,z,24);
-    cout<<time.first<< " "<<time.second<<endl;   
-    */
-   int a=8,b=12;
-   cout<<gcd(a,b)<<endl;
-   cout<<lcm(a,b)<<endl;
+    
     return 0;
 }
