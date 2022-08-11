@@ -139,8 +139,17 @@ map<int,int> frequency_count(vector<int> v)
     return mp;
 }
 
+void solve()
+{
+    ll n,m,a,b,c,d,w,x,y,z,i,j;
+    
+}
+
 int main()
 {
-    
+    int t;
+    t=1;
+    //cin>>t;
+    while(t--) solve();
     return 0;
 }
