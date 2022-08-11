@@ -18,12 +18,17 @@ void init(ll node, ll b, ll e)
     init(Right, mid + 1, e);
     tree[node] = tree[Left] + tree[Right];//sumation of range
     //tree[node] = max(tree[Left],tree[Right]);//big element of range
+    //tree[node] = min(tree[Left],tree[Right]);//small element of range
 }
 //segment tree for output (node = 1 , b = array's first index , e = array's last index , i = range'f first index, j = range last index)
 ll query(ll node, ll b, ll e, ll i, ll j)
 {
     if (i > e || j < b)
-        return 0; //বাইরে চলে গিয়েছে
+        {
+            return 0; //বাইরে চলে গিয়েছে,sum ar jonno
+            //return INT_MAX;//minimum number 
+            //return INT_MIN;//maximum number ar jonno
+        }
     if (b >= i && e <= j)
         return tree[node]; //রিলেভেন্ট সেগমেন্ট
     ll Left = node * 2; //আরো ভাঙতে হবে
@@ -33,6 +38,7 @@ ll query(ll node, ll b, ll e, ll i, ll j)
     ll p2 = query(Right, mid + 1, e, i, j);
     return p1 + p2; //বাম এবং ডান পাশের যোগফল , sum of range
     //return max(p1,p2);// big number in range
+    //return min(p1,p2);// small number in range
 }
 //segment tree for update (node = 1 , b = array's first index , e = array's last index , i = range'f first index, j = range last index)
 void update(ll node, ll b, ll e, ll i, ll newvalue)
@@ -50,6 +56,7 @@ void update(ll node, ll b, ll e, ll i, ll newvalue)
     update(Right, mid + 1, e, i, newvalue);
     tree[node] = tree[Left] + tree[Right];// sum of element of range
     //tree[node] = max(tree[Left],tree[Right]);//big element of range
+    //tree[node] = min(tree[Left],tree[Right]);//small element of range
 }
 */
 //------------------------------------------------------------------------
