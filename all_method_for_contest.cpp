@@ -109,7 +109,7 @@ bool is_prime(long long int n)
 	return true;
 }
 
-long long gcd(long long int a, long long int b)//gosagu
+long long int gcd(long long int a, long long int b)//gosagu
 {
     if (b == 0)
         return a;
