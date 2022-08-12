@@ -61,6 +61,54 @@ void update(ll node, ll b, ll e, ll i, ll newvalue)
 */
 //------------------------------------------------------------------------
 
+//return a vector there have all prime factro
+vector<int> all_prime_factor(int n)
+{
+	vector<int> v;
+	int spf[n+1]={0};
+	for(int i=2;i<=n;i++) spf[i]=i;
+	for(int i=2;i<=n;i++)
+	{
+		if(spf[i]==i)
+		{
+			for(int j=i*i;j<=n;j=j+i) if(spf[j]==j) spf[j]=i;
+		}
+	}
+	while(n!=1)
+	{
+		v.push_back(spf[n]);
+		n=n/spf[n];
+	}
+	return v;
+}
+//return a vector all prime number 2->n 
+vector<int> all_prime(int n)
+{
+	int arr[n+1]={0};
+	for(int i=2;i<=n;i++)
+	{
+		if(arr[i]==0)
+		{
+			for(int j=i*i;j<=n;j=j+i)
+			{
+				arr[j]=1;
+			}
+		}
+	}
+	vector<int> v;
+	for(int i=2;i<=n;i++) if(arr[i]==0) v.push_back(i);
+	return v;
+}
+//return a boolean value for prime or not
+bool is_prime(long long int n)
+{
+	for(int i=2;i<=sqrt(n);i++) 
+	{
+		if(n%i==0) return false;
+	}
+	return true;
+}
+
 long long gcd(long long int a, long long int b)//gosagu
 {
     if (b == 0)
