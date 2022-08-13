@@ -61,6 +61,11 @@ void update(ll node, ll b, ll e, ll i, ll newvalue)
 */
 //------------------------------------------------------------------------
 
+//combination
+int nCr(int n, int r) {
+    return (n*(n-1))/2;
+}
+
 //return a vector there have all prime factro
 vector<int> all_prime_factor(int n)
 {
