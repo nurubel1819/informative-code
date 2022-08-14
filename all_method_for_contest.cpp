@@ -61,9 +61,19 @@ void update(ll node, ll b, ll e, ll i, ll newvalue)
 */
 //------------------------------------------------------------------------
 
-//combination
-int nCr(int n, int r) {
-    return (n*(n-1))/2;
+int findFact(int n)
+{
+    return n == 1 ? 1 : n * findFact(n - 1);
+}
+
+int nPr(int n, int r)
+{
+    return findFact(n) / findFact(n - r);
+}
+
+int nCr(int n, int r)
+{
+    return findFact(n) / (findFact(n - r) * findFact(r));
 }
 
 //return a vector there have all prime factro
